@@ -1,0 +1,133 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=0.68in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{array}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+\setlist[itemize]{leftmargin=*, noitemsep, topsep=2pt}
+\titleformat{\section}{\large\bfseries}{}{0em}{}[\titlerule]
+\pagenumbering{gobble}
+
+\begin{document}
+
+\begin{center}
+    {\LARGE \textbf{Arian Haghparast}}\\
+    Toronto, ON \quad | \quad (437) 268-2218 \quad | \quad \href{mailto:arianhgh@my.yorku.ca}{arianhgh@my.yorku.ca}
+\end{center}
+
+\section*{Professional Summary}
+Machine learning-focused Computer Science student at York University with hands-on experience building and evaluating deep learning and reinforcement learning models on structured and real-world datasets. Strong foundation in Python, PyTorch, and TensorFlow, with particular interest in model validation, explainability, benchmarking, and careful experimental design. Experienced in reading academic literature, implementing research ideas, and presenting technical findings clearly for different audiences.
+
+\section*{Technical Skills}
+\textbf{Languages:} Python, C++, JavaScript, SQL\\
+\textbf{Machine Learning:} PyTorch, TensorFlow, Keras, scikit-learn, Transformers, deep reinforcement learning, graph neural networks, metric learning, representation learning\\
+\textbf{Evaluation:} benchmark design, retrieval metrics, custom evaluation pipelines, ablation studies, hard negative sampling, error analysis, statistical analysis\\
+\textbf{Interpretability:} SHAP, feature importance analysis\\
+\textbf{Data / Tools:} NumPy, pandas, Git, Node.js, React, Tailwind CSS, MongoDB, WebSockets\\
+\textbf{Research:} literature review, paper implementation, manuscript preparation, reproducible experimentation
+
+\section*{Experience}
+
+\textbf{Research Assistant} \hfill \textit{Jan 2024 -- Present}\\
+\textbf{Data Mining Lab, York University} \hfill Toronto, ON
+\begin{itemize}
+    \item Designed and evaluated deep learning and reinforcement learning models for trajectory representation, similarity retrieval, and pathlet dictionary construction on synthetic and real-world urban mobility datasets, including Toronto, Rome, and Manhattan road networks.
+    \item Co-developed \textit{PathletRL++}, an RL-based framework for trajectory pathlet dictionary formation that reduced dictionary size by up to 65.8\% versus prior methods and lowered memory requirements by up to $\sim$24{,}000$\times$.
+    \item Improved pathlet dictionary efficiency while preserving reconstruction quality, showing that only half of the learned pathlets were sufficient to reconstruct 85\% of the original trajectory data.
+    \item Developed a Multi-Level Hyper-Transformer for trajectory similarity learning using Fourier-based spatiotemporal encoding, dynamic segmentation, hierarchical Transformers, and metric-learning objectives, outperforming strong baselines on synthetic and real-world ride-sharing retrieval tasks, especially under partial-overlap settings.
+    \item Designed custom evaluation pipelines, retrieval metrics, and component-level ablations to validate model behavior, support manuscript preparation, and improve reproducibility across multiple projects.
+\end{itemize}
+
+\textbf{NSERC CREATE SMART Program Research Trainee} \hfill \textit{Sep 2025 -- Apr 2026}\\
+\textbf{Smart Mobility Advanced Research \& Training (SMART)} \hfill Toronto, ON
+\begin{itemize}
+    \item Conducted applied machine learning research on mobility and decision-making systems using large structured transportation datasets and simulation-based evaluation.
+    \item Evaluated adaptive multi-agent routing models on synthetic grids and realistic road networks, demonstrating up to 25.7\% lower average travel time than Shortest Path First on synthetic settings and up to 12.5\% improvement on realistic topologies.
+    \item Studied scalable hierarchical MARL for coordinated navigation, achieving 100\% routing success and performance gains of up to 15.9\% under high-demand conditions on networks with 320+ nodes.
+    \item Reviewed recent ML literature and translated research ideas into practical experiments, baselines, and reproducible evaluation pipelines.
+\end{itemize}
+
+\textbf{Research Assistant} \hfill \textit{Sep 2023 -- Dec 2023}\\
+\textbf{Elder Laboratory} \hfill Toronto, ON
+\begin{itemize}
+    \item Developed and maintained backend infrastructure using Node.js and WebSockets to support reliable data flow and system performance for research workflows.
+    \item Built responsive internal research tools and interfaces with React and Tailwind CSS to improve usability and support data-driven experimentation.
+    \item Collaborated with cross-functional team members to integrate software components and improve development efficiency.
+\end{itemize}
+
+\section*{Projects}
+
+\textbf{Structured Data Modeling and Validation for Financial Time Series} \hfill \textit{Dec 2025}\\
+\textit{Python, XGBoost, pandas, scikit-learn}
+\begin{itemize}
+    \item Developed a predictive machine learning pipeline to forecast EUR/USD exchange rate movements using 17 years of hourly tabular data, implementing state-of-the-art methods for financial models.
+    \item Engineered robust time-series features to capture market regimes, including rolling Z-scores for stationarity, cyclical time encodings, and momentum/volatility indicators (RSI, ATR, MACD).
+    \item Trained a custom-weighted XGBoost classifier, applying sample weights proportional to return magnitude to prioritize high-impact market movements and improve model generalization.
+    \item Designed a rigorous validation framework with chronological splitting to prevent look-ahead bias, achieving a 17.73\% strategy return (outperforming the 0.07\% market baseline) and a 52.7\% win rate across 7,432 trades.
+\end{itemize}
+\textbf{Equibot: RL \& Vision-Based Balancing Robot} \\ \textit{Python, Arduino}
+\begin{itemize}
+    \item Developed a robotic system utilizing computer vision and reinforcement learning to dynamically balance a ball on a moving platform.
+\end{itemize}
+
+\textbf{Pendubot: Self-Balancing Inverted Pendulum} \\ \textit{Raspberry Pi, Control Algorithms}
+\begin{itemize}
+    \item Designed a self-balancing robotic system employing real-time control algorithms to stabilize an inverted pendulum.
+\end{itemize}
+
+\section*{Selected Publications}
+\textit{*Co-first author; my name in bold}\\[2pt]
+\textbf{Network-Constrained Policy Optimization for Adaptive Multi-agent Vehicle Routing}\\
+arXiv preprint arXiv:2510.26089 (2026)\\
+F. Arasteh$^{*}$, \textbf{A. Haghparast}$^{*}$, M. Papagelis
+
+\textbf{PathletRL++: Optimizing Trajectory Pathlet Extraction and Dictionary Formation via Reinforcement Learning}\\
+\textit{ACM Transactions on Spatial Algorithms and Systems, Special Issue for Best Papers of ACM SIGSPATIAL 2023} (2025)\\
+G. Alix$^{*}$, \textbf{A. Haghparast}$^{*}$, M. Papagelis
+
+\textbf{Robot Wheelchair Convoys for Assistive Human Transportation}\\
+2024 IEEE International Conference on Smart Mobility (SM), pp. 25--32\\
+H. Perroni Filho, J. Ren, M. Akhavan, Y. Hou, W. Khan, \textbf{A. Haghparast}, et al.
+
+\section*{Education}
+\textbf{York University, Lassonde School of Engineering} \hfill \textit{Expected Jun 2026}\\
+Bachelor of Science in Computer Science\\
+GPA: 3.96/4.00\\
+\textbf{Relevant Coursework:} Machine Learning, Advanced Machine Learning, Introduction to AI and Logic Programming, Probability Theory, Applied Linear Algebra, Design and Analysis of Algorithms, Database Systems, Fundamentals of Data Structures, Intro. to the Theory of Computation\\
+\textbf{Awards:} Lassonde Undergraduate Research Award (3x), Annual Continuing Student Scholarship (3x), Lassonde Entrance Scholarship, Dean's Honour Roll
+
+\section*{Leadership}
+\textbf{Founder, Research Society at York} \hfill \textit{Jul 2023 -- Present}
+\begin{itemize}
+    \item Founded a student research organization to support interdisciplinary collaboration, workshops, and research skill development.
+    \item Organized events connecting students with academic and industry researchers and promoting undergraduate engagement in research.
+\end{itemize}
+
+\end{document}
+
+
+
+Technical Skills
+Languages: C/C++, Python, JavaScript, SQL, Rust (Familiar), Go (Familiar)
+Robotics & Embedded: ROS/ROS2, PID Control, Model Predictive Control (MPC), Kinematics, Sensor Pro-
+cessing, Microcontrollers (STM32, Arduino, ESP32), RTOS
+Tools & Infrastructure: Linux, Git, AWS, WebSockets, Data and Log Analysis, Comprehensive Design Docu-
+mentation
+Machine Learning: PyTorch, TensorFlow, deep reinforcement learning, Transformers, benchmark design, vali-
+dation
+Experience
+Research Assistant SDCN Lab, York University May 2024 – Present
+Toronto, ON
+• Architected and programmed software for quadrotors, implementing Model Predictive Control (MPC) and PID
+algorithms for precise, real-time flight dynamics.
+• Utilized ROS/ROS2 within a Linux environment to manage sensor processing, kinematics, and state estimation,
+developing robust embedded firmware in C/C++.
+• Designed and implemented Python scripts and tools to automate testing workflows, streamline production-like
+processes, and perform deep data and log analysis.
+

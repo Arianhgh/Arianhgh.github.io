@@ -1,0 +1,105 @@
+.contact-container {
+  position: relative;
+  width: 100%;
+}
+
+.cli-window {
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(8, 8, 14, 0.95);
+  border: 1px solid rgba(251, 191, 36, 0.15);
+  box-shadow: 0 0 30px rgba(251, 191, 36, 0.05);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.cli-window:hover {
+  transform: none;
+}
+
+.cli-header {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.cli-buttons {
+  display: flex;
+  gap: 6px;
+}
+
+.cli-btn {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.cli-btn.close { background: #ff5f56; }
+.cli-btn.minimize { background: #ffbd2e; }
+.cli-btn.maximize { background: #27c93f; }
+
+.cli-title {
+  flex-grow: 1;
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+}
+
+.cli-body {
+  padding: 18px;
+  height: 320px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: left;
+}
+
+.cli-line {
+  line-height: 1.6;
+  word-break: break-word;
+  font-size: 0.85rem;
+}
+
+.cli-line.output { color: var(--text-dim); }
+.cli-line.input { color: var(--text-primary); }
+.cli-line.error { color: var(--accent-rose); }
+.cli-line.link a { color: var(--accent-amber); text-decoration: underline; text-underline-offset: 3px; }
+
+.cli-input-line {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 6px;
+}
+
+.prompt {
+  color: var(--accent-emerald);
+  white-space: nowrap;
+  font-size: 0.85rem;
+}
+
+.cli-input-line input {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.85rem;
+  flex-grow: 1;
+  outline: none;
+  caret-color: var(--accent-amber);
+}
+
+.footer-bottom {
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  margin-top: 20px;
+  letter-spacing: 0.5px;
+}

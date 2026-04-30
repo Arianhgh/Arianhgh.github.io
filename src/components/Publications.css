@@ -1,0 +1,86 @@
+.publications-container {}
+
+.publications-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.publication-item {
+  display: flex;
+  gap: 16px;
+  padding: 20px;
+  border-color: rgba(255,255,255,0.04);
+  transition: all 0.3s ease;
+}
+
+.publication-item:hover {
+  transform: none;
+  border-color: rgba(251, 113, 133, 0.2);
+  box-shadow: 0 0 20px rgba(251, 113, 133, 0.06);
+}
+
+.pub-icon {
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+.pub-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pub-title {
+  font-size: 1.05rem;
+  color: #fff;
+  line-height: 1.4;
+  transition: color 0.2s ease;
+}
+
+.publication-item:hover .pub-title {
+  color: var(--accent-rose);
+}
+
+.pub-authors {
+  color: var(--text-primary);
+  font-size: 0.85rem;
+}
+
+.pub-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.pub-journal {
+  font-style: italic;
+  color: var(--text-dim);
+  font-size: 0.8rem;
+}
+
+.pub-year {
+  background: rgba(251, 113, 133, 0.08);
+  color: var(--accent-rose);
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.pub-note {
+  font-size: 0.75rem;
+  color: var(--accent-emerald);
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 640px) {
+  .publication-item {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
