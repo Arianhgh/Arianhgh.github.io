@@ -95,6 +95,14 @@ async function siteIsRunning() {
   }
 }
 
+async function pagesIsLive() {
+  try {
+    return (await fetch(siteUrl, { signal: AbortSignal.timeout(5000) })).ok;
+  } catch {
+    return false;
+  }
+}
+
 if (!(await siteIsRunning())) {
   astroChild = spawn(path.join(root, 'node_modules/.bin/astro'),
     ['dev', '--host', host, '--port', '4321'], { cwd: root, stdio: 'inherit' });
@@ -144,7 +152,9 @@ const server = http.createServer(async (request, response) => {
       if (publishing) throw new Error('A post is already being published.');
       publishing = true;
       try {
-        const post = await preparePublish(root, await readJson(request));
+        const input = await readJson(request);
+        if (!(await pagesIsLive())) throw new Error('GitHub Pages is not live yet. Your draft is saved locally.');
+        const post = await preparePublish(root, input);
         reply(response, 200, await publish(post));
       } finally {
         publishing = false;

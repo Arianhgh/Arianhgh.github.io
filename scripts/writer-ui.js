@@ -187,9 +187,9 @@ form.addEventListener('submit', async (event) => {
     dirty = false;
     postState.textContent = 'Published';
     deleteButton.hidden = true;
-    saveState.textContent = 'Live';
+    saveState.textContent = 'Published';
     await refreshList();
-    message.replaceChildren('Published. ');
+    message.replaceChildren('Published. It may take a minute to appear. ');
     const link = document.createElement('a');
     link.href = result.url;
     link.target = '_blank';
