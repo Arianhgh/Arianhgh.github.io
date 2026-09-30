@@ -1,0 +1,12 @@
+---
+import Base from '../../layouts/Base.astro';
+import PostList from '../../components/PostList.astro';
+import { publishedPosts } from '../../lib/content';
+import { sitePath } from '../../lib/paths';
+const posts = (await publishedPosts()).filter((post) => post.data.kind === 'essay');
+---
+<Base title="Essays" description="Essays by Arian Haghparast.">
+  <header class="page-intro"><p class="kicker">Writing</p><h1>Essays</h1></header>
+  <nav class="writing-filter" aria-label="Writing filters"><a href={sitePath('/writing/')}>All</a><a href={sitePath('/writing/notes/')}>Notes</a><a href={sitePath('/writing/essays/')} aria-current="page">Essays</a></nav>
+  {posts.length ? <PostList posts={posts} /> : <p class="empty-state">No essays yet.</p>}
+</Base>

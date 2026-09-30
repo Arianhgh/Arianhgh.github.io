@@ -1,0 +1,17 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { sitePath } from '../lib/paths';
+
+interface Props { projects: CollectionEntry<'projects'>[]; }
+const { projects } = Astro.props;
+---
+<div class="entry-list">
+  {projects.map((project) => (
+    <article class="entry project-entry">
+      <div class="entry-meta">{project.data.category} <span aria-hidden="true">·</span> {project.data.year}</div>
+      <h3><a href={sitePath(`/work/${project.data.slug}/`)}>{project.data.title}</a></h3>
+      <p>{project.data.summary}</p>
+      <p class="entry-result">{project.data.result}</p>
+    </article>
+  ))}
+</div>

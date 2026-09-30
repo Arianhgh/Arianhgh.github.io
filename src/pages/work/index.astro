@@ -1,0 +1,19 @@
+---
+import Base from '../../layouts/Base.astro';
+import ProjectList from '../../components/ProjectList.astro';
+import PublicationList from '../../components/PublicationList.astro';
+import { featuredProjects } from '../../lib/content';
+
+const projects = await featuredProjects();
+---
+<Base title="Work" description="Projects and publications by Arian Haghparast.">
+  <header class="page-intro"><h1>Work</h1></header>
+  <section id="publications" aria-labelledby="publications-title">
+    <h2 class="subheading" id="publications-title">Publications</h2>
+    <PublicationList />
+  </section>
+  <section class="page-section" aria-labelledby="projects-title">
+    <h2 id="projects-title">Top projects</h2>
+    <ProjectList projects={projects} />
+  </section>
+</Base>

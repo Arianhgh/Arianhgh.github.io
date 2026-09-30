@@ -1,16 +1,27 @@
-# React + Vite
+# Arian Haghparast's portfolio and journal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A static Astro site with selected work and a Markdown journal. Only files inside `website` are part of the site; the private master resume in the parent directory is not published.
 
-Currently, two official plugins are available:
+## Run locally
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```bash
+cd website
+npm install
+npm run write
+```
 
-## React Compiler
+Visit `http://127.0.0.1:4322/` to write. The command also starts the site preview at `http://127.0.0.1:4321/` if it is not already running. Both servers listen only on this computer. Run `npm run check`, `npm run test:writer`, and `npm run build` to verify changes.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Publish writing
 
-## Expanding the ESLint configuration
+The writing screen has a title, Note/Essay choice, date, optional summary, Markdown text box, and preview. **Save draft** keeps a private JSON draft in `.local-drafts/`, which is ignored by Git. **Publish** checks and builds the site, commits only that post to `main`, pushes it to GitHub, and updates the live `gh-pages` branch. If a step fails, the draft remains on this computer. Published posts appear on the homepage, writing archive, and RSS feed. Future-dated posts stay unpublished until their date.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+For file-based editing, `npm run new:note -- "Title"` and `npm run new:essay -- "Title"` still create Markdown drafts in `src/content/posts/`. The templates in `templates/` show both formats.
+
+Each post supports standard Markdown, fenced code, images, footnotes, and `$inline$` or `$$display$$` math. Put images in `public/images/` and reference them from a post as `../../images/name.jpg` so links also work on a GitHub Pages subpath.
+
+The public resume's source is `src/pages/resume.astro`. After editing it, open `/resume/` in the local preview and use your browser's Print to PDF action to refresh `public/resume.pdf`. Review both PDF pages and make sure the exported text contains only contact details you intend to publish.
+
+## Deploy
+
+The source is the `main` branch of `Arianhgh/Arianhgh.github.io`; the compiled site is published from `gh-pages` at `https://arianhgh.github.io/`. To deploy site changes outside the writing screen, commit and push `main`, then run `npm run deploy`. The old React version is preserved on `backup/portfolio-before-redesign-2026-09-30`.

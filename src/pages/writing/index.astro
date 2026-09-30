@@ -1,0 +1,15 @@
+---
+import Base from '../../layouts/Base.astro';
+import PostList from '../../components/PostList.astro';
+import { publishedPosts } from '../../lib/content';
+import { sitePath } from '../../lib/paths';
+
+const posts = await publishedPosts();
+const pagePosts = posts.slice(0, 20);
+---
+<Base title="Writing" description="Notes and essays from Arian Haghparast on research, work, and life.">
+  <header class="page-intro"><h1>Writing</h1></header>
+  <nav class="writing-filter" aria-label="Writing filters"><a href={sitePath('/writing/')} aria-current="page">All</a><a href={sitePath('/writing/notes/')}>Notes</a><a href={sitePath('/writing/essays/')}>Essays</a></nav>
+  {posts.length ? <PostList posts={pagePosts} /> : <p class="empty-state">No posts yet.</p>}
+  {posts.length > 20 && <nav class="pagination"><a href={sitePath('/writing/page/2/')}>Older posts →</a></nav>}
+</Base>

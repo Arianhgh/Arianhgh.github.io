@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="writer-token" content="__WRITER_TOKEN__" />
+    <title>Writing | Arian Haghparast</title>
+    <link rel="icon" href="http://127.0.0.1:4321/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/writer.css" />
+    <script src="/writer.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="site-name" href="http://127.0.0.1:4321/">Arian Haghparast</a>
+      <span>Writing</span>
+      <a href="http://127.0.0.1:4321/writing/" target="_blank" rel="noopener">View site ↗</a>
+    </header>
+    <div class="workspace">
+      <aside class="sidebar" aria-label="Posts">
+        <div class="sidebar-head"><h2>Posts</h2><button type="button" id="new-post">New post</button></div>
+        <div id="post-list" class="post-list"></div>
+      </aside>
+      <main class="editor">
+        <form id="post-form">
+          <div class="editor-top"><span id="post-state">New post</span><span id="save-state" role="status" aria-live="polite"></span></div>
+          <label class="sr-only" for="title">Title</label>
+          <input id="title" name="title" type="text" maxlength="160" placeholder="Title" autocomplete="off" />
+          <div class="fields">
+            <fieldset class="kind-control">
+              <legend>Type</legend>
+              <label><input type="radio" name="kind" value="note" checked /><span>Note</span></label>
+              <label><input type="radio" name="kind" value="essay" /><span>Essay</span></label>
+            </fieldset>
+            <label class="date-control">Date<input id="date" name="date" type="date" required /></label>
+          </div>
+          <label class="summary-control">Summary <span>optional</span><input id="summary" name="summary" type="text" maxlength="300" placeholder="A short line for the writing list" /></label>
+          <div class="body-head">
+            <label for="body">Post</label>
+            <div class="view-control" role="group" aria-label="Editor view">
+              <button type="button" id="write-tab" aria-pressed="true">Write</button>
+              <button type="button" id="preview-tab" aria-pressed="false">Preview</button>
+            </div>
+          </div>
+          <textarea id="body" name="body" placeholder="Start writing..."></textarea>
+          <iframe id="preview" title="Post preview" sandbox hidden></iframe>
+          <div class="actions">
+            <button type="button" id="delete-draft" hidden>Delete draft</button>
+            <button type="button" id="save-draft">Save draft</button>
+            <button type="submit" id="publish">Publish</button>
+          </div>
+          <p id="message" role="status" aria-live="polite"></p>
+        </form>
+      </main>
+    </div>
+  </body>
+</html>

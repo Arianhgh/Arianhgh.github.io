@@ -1,0 +1,45 @@
+---
+import '../styles/site.css';
+import 'katex/dist/katex.min.css';
+import { person } from '../data/site';
+import { sitePath } from '../lib/paths';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description = 'Arian Haghparast writes about machine learning, research, work, and life in Toronto.' } = Astro.props;
+const pageTitle = title ? `${title} | ${person.name}` : `${person.name} | ML engineer and researcher`;
+const canonical = Astro.url;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#fcfcfa" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" type="application/rss+xml" title="Arian Haghparast's writing" href={new URL(sitePath('/rss.xml'), Astro.site)} />
+    <link rel="icon" type="image/svg+xml" href={sitePath('/favicon.svg')} />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header wrap">
+      <a class="site-name" href={sitePath('/')}>Arian Haghparast</a>
+      <nav aria-label="Main navigation">
+        <a href={sitePath('/work/')} aria-current={Astro.url.pathname.startsWith(sitePath('/work/')) ? 'page' : undefined}>Work</a>
+        <a href={sitePath('/writing/')} aria-current={Astro.url.pathname.startsWith(sitePath('/writing/')) ? 'page' : undefined}>Writing</a>
+        <a href={sitePath('/about/')} aria-current={Astro.url.pathname === sitePath('/about/') ? 'page' : undefined}>About</a>
+        {import.meta.env.DEV && <a href="http://127.0.0.1:4322/">Write</a>}
+      </nav>
+    </header>
+    <main id="main" class="wrap"><slot /></main>
+    <footer class="site-footer wrap">
+      <span>© {new Date().getFullYear()} Arian Haghparast</span>
+      <div><a href={`mailto:${person.email}`}>Email</a><a href={sitePath('/rss.xml')}>RSS</a></div>
+    </footer>
+  </body>
+</html>

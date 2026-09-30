@@ -1,0 +1,14 @@
+---
+import Base from '../layouts/Base.astro';
+import { person } from '../data/site';
+import { sitePath } from '../lib/paths';
+---
+<Base title="About" description="About Arian Haghparast: machine learning engineer and researcher in Toronto.">
+  <header class="page-intro"><h1>About</h1></header>
+  <div class="prose about-prose">
+    <p>I’m Arian. I finished a BSc in Computer Science at York University in 2026, and I now work in its Data Mining Lab. I study reinforcement learning and data mining, and build tools to inspect how ML systems behave.</p>
+    <p>I keep coming back to reinforcement learning because I’m curious about how something can learn by trying things and seeing what happens.</p>
+    <p>Outside work, I listen to a lot of music (Tame Impala lately), play electric guitar sometimes, and walk around downtown Toronto.</p>
+  </div>
+  <div class="about-links"><a href={sitePath('/work/')}>Work →</a><a href={sitePath('/writing/')}>Writing →</a><a href={`mailto:${person.email}`}>Email ↗</a></div>
+</Base>

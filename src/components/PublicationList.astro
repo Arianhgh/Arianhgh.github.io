@@ -1,0 +1,11 @@
+---
+import { publications } from '../data/publications';
+---
+<div class="entry-list publication-list">
+  {publications.map((publication) => (
+    <article class="entry publication-entry">
+      <div class="entry-meta">{publication.venue} <span aria-hidden="true">·</span> {publication.year} <span aria-hidden="true">·</span> {publication.role}</div>
+      <h3><a href={publication.url}>{publication.title}</a></h3>
+    </article>
+  ))}
+</div>

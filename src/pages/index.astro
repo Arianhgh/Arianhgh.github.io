@@ -1,0 +1,42 @@
+---
+import Base from '../layouts/Base.astro';
+import ProjectList from '../components/ProjectList.astro';
+import PublicationList from '../components/PublicationList.astro';
+import PostList from '../components/PostList.astro';
+import { featuredProjects, publishedPosts } from '../lib/content';
+import { person } from '../data/site';
+import { sitePath } from '../lib/paths';
+
+const projects = await featuredProjects();
+const posts = (await publishedPosts()).slice(0, 5);
+---
+<Base>
+  <section class="intro" aria-labelledby="intro-title">
+    <p class="intro-location">Toronto, Canada</p>
+    <h1 id="intro-title">Arian Haghparast</h1>
+    <p class="intro-lead">I work on reinforcement learning and robotics, and build tools to understand why models behave the way they do.</p>
+    <p class="intro-secondary">I also keep notes here on what I’m learning and working through.</p>
+    <div class="link-row" aria-label="Profile and contact links">
+      <a href={sitePath('/resume/')}>Resume <span aria-hidden="true">→</span></a>
+      <a href={`mailto:${person.email}`}>Email <span aria-hidden="true">↗</span></a>
+      <a href={person.github}>GitHub <span aria-hidden="true">↗</span></a>
+      <a href={person.scholar}>Scholar <span aria-hidden="true">↗</span></a>
+      <a href={person.linkedin}>LinkedIn <span aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+
+  <section class="page-section" aria-labelledby="publications-title">
+    <div class="section-head"><h2 id="publications-title">Publications</h2></div>
+    <PublicationList />
+  </section>
+
+  <section class="page-section" aria-labelledby="projects-title">
+    <div class="section-head"><h2 id="projects-title">Top projects</h2><a href={sitePath('/work/')}>All work <span aria-hidden="true">→</span></a></div>
+    <ProjectList projects={projects} />
+  </section>
+
+  <section class="page-section" aria-labelledby="writing-title">
+    <div class="section-head"><h2 id="writing-title">Writing</h2><a href={sitePath('/writing/')}>All writing <span aria-hidden="true">→</span></a></div>
+    {posts.length ? <PostList posts={posts} /> : <p class="empty-state">No posts yet.</p>}
+  </section>
+</Base>
